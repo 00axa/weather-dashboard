@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-weather="default">
+  <!-- Full-screen ambient: gradients, waves, particles, condition overlays (decorative only) -->
+  <div class="ambient" id="ambient" aria-hidden="true">
+    <div class="ambient__layer ambient__gradient"></div>
+    <div class="ambient__layer ambient__gradient ambient__gradient--slow"></div>
+    <div class="ambient__layer ambient__mesh"></div>
+    <div class="ambient__layer ambient__waves"></div>
+    <div class="ambient__layer ambient__particles"></div>
+    <div class="ambient__layer ambient__orbs">
+      <span class="ambient__orb"></span>
+      <span class="ambient__orb"></span>
+      <span class="ambient__orb"></span>
+    </div>
+    <div class="ambient__layer ambient__sun"></div>
+    <div class="ambient__layer ambient__fog"></div>
+    <div class="ambient__layer ambient__rain"></div>
+    <div class="ambient__layer ambient__lightning"></div>
+  </div>
+
+  <main class="layout" id="layout">
+    <header class="header">
+      <h1 class="title">Weather</h1>
+      <p class="subtitle">Real-time conditions for any city</p>
+    </header>
+
+    <section class="search-panel card card--glass" aria-label="Search weather by city">
+      <div class="search-row">
+        <label for="city-input" class="visually-hidden">City name</label>
+        <input
+          type="text"
+          id="city-input"
+          class="city-input"
+          placeholder="Enter city name..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button type="button" id="search-btn" class="search-btn">Search</button>
+      </div>
+      <p id="error-msg" class="error-msg" role="alert" hidden></p>
+    </section>
+
+    <div id="loading" class="loading card card--glass" hidden aria-live="polite" aria-busy="true">
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="loading-text">Fetching forecast…</p>
+    </div>
+
+    <section id="weather-section" class="weather-section card card--glass" hidden aria-live="polite">
+      <div class="weather-main">
+        <img id="weather-icon" class="weather-icon" src="" alt="" width="120" height="120" />
+        <div class="weather-primary">
+          <h2 id="city-name" class="city-name"></h2>
+          <p id="condition" class="condition"></p>
+          <p class="temp-wrap">
+            <span id="temperature" class="temperature"></span>
+            <span class="unit">°C</span>
+          </p>
+        </div>
+      </div>
+      <ul class="stats" aria-label="Weather details">
+        <li class="stat stat--glass">
+          <span class="stat-label">Humidity</span>
+          <span id="humidity" class="stat-value"></span>
+        </li>
+        <li class="stat stat--glass">
+          <span class="stat-label">Wind</span>
+          <span id="wind" class="stat-value"></span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
