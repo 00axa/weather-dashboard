@@ -4,6 +4,8 @@ A modern, visually rich, and interactive weather dashboard that provides real-ti
 city using the OpenWeatherMap API. This project focuses on clean UI, smooth animations, and dynamic background 
 effects based on weather conditions.
 
+🚀 **[Live Demo Placeholder](https://genuine-cat-c03bb9.netlify.app/)**
+
 ---
 
 ## 🚀 Features
